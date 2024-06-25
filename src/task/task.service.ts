@@ -13,9 +13,10 @@ export class TaskService {
   }
 
   async createTask(createTaskInput: CreateTaskInput): Promise<Task> {
-    const { name, dueDate, description } = createTaskInput;
+    const { name, dueDate, description, userId } = createTaskInput;
     return await this.prismaService.task.create({
       data: {
+        userId,
         name,
         dueDate,
         description,
